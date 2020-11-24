@@ -2,14 +2,14 @@
 package modelo;
 
 
-public class Producto {
+public class Product {
     
     private String nombre;
     private int stock;
     private String descripcion;
     private float precio;
 
-    public Producto(String nombre, String descripcion, float precio) {
+    public Product(String nombre, String descripcion, float precio) {
         this.nombre = nombre;
         this.descripcion = descripcion;
         this.precio = precio;

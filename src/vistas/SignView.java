@@ -5,15 +5,15 @@
  */
 package vistas;
 
-import modelo.Usuario;
+import modelo.User;
 
 /**
  *
  * @author oscaretnia
  */
-public interface VistaLogin {
+public interface SignView {
     
-    public void onSuccess(Usuario usuario);
+    public void onSuccess(User usuario);
     
     public void onError(String mensaje);
     

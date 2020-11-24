@@ -3,11 +3,15 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/ML-118060/Downloads/Proyecto%20Ventas%20Retail%20(1)/Proyecto%20Ventas%20Retail/src/controlador/LoginRegistroControlador.java</file>
-            <file>file:/C:/Users/ML-118060/Downloads/Proyecto%20Ventas%20Retail%20(1)/Proyecto%20Ventas%20Retail/src/modelo/Datos.java</file>
-            <file>file:/C:/Users/ML-118060/Downloads/Proyecto%20Ventas%20Retail%20(1)/Proyecto%20Ventas%20Retail/src/modelo/LoginRegistroModelo.java</file>
-            <file>file:/C:/Users/ML-118060/Downloads/Proyecto%20Ventas%20Retail%20(1)/Proyecto%20Ventas%20Retail/src/modelo/Producto.java</file>
-            <file>file:/C:/Users/ML-118060/Downloads/Proyecto%20Ventas%20Retail%20(1)/Proyecto%20Ventas%20Retail/src/modelo/Usuario.java</file>
+            <file>file:/C:/Users/oscaretnia/Desktop/Proyecto%20Ventas%20Retail/src/vistas/Creacion.java</file>
+            <file>file:/C:/Users/oscaretnia/Desktop/Proyecto%20Ventas%20Retail/src/vistas/Login.java</file>
+            <file>file:/C:/Users/oscaretnia/Desktop/Proyecto%20Ventas%20Retail/src/vistas/CatalogoAccesorios.java</file>
+            <file>file:/C:/Users/oscaretnia/Desktop/Proyecto%20Ventas%20Retail/src/controlador/LoginRegistroControlador.java</file>
+            <file>file:/C:/Users/oscaretnia/Desktop/Proyecto%20Ventas%20Retail/src/vistas/VistaLogin.java</file>
+            <file>file:/C:/Users/oscaretnia/Desktop/Proyecto%20Ventas%20Retail/src/util/Mensaje.java</file>
+            <file>file:/C:/Users/oscaretnia/Desktop/Proyecto%20Ventas%20Retail/src/modelo/Datos.java</file>
+            <file>file:/C:/Users/oscaretnia/Desktop/Proyecto%20Ventas%20Retail/src/modelo/LoginRegistroModelo.java</file>
+            <file>file:/C:/Users/oscaretnia/Desktop/Proyecto%20Ventas%20Retail/src/vistas/ModificacionPerfil.java</file>
         </group>
     </open-files>
 </project-private>

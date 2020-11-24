@@ -1,12 +1,12 @@
 package vistas;
 
-import controlador.LoginRegistroControlador;
+import controlador.AuthController;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
-import modelo.Usuario;
+import modelo.User;
 import util.Mensaje;
 
 /*
@@ -18,22 +18,22 @@ import util.Mensaje;
  *
  * @author tlser
  */
-public class Login extends javax.swing.JFrame implements VistaLogin {
+public class Signin extends javax.swing.JFrame implements SignView {
 
-    LoginRegistroControlador controlador;
+    AuthController controlador;
 
     /**
      * Creates new form Login
      */
     Contenido2 ejemplo = new Contenido2();
 
-    public Login() {
+    public Signin() {
         this.setContentPane(ejemplo);
         setResizable(false);
         initComponents();
 
         //Controlador
-        controlador = new LoginRegistroControlador(this);
+        controlador = new AuthController(this);
     }
 
     /**
@@ -48,12 +48,12 @@ public class Login extends javax.swing.JFrame implements VistaLogin {
         panel = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        btnIngresar = new javax.swing.JButton();
+        btnSignin = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
-        btnRegistro = new javax.swing.JButton();
-        txtUsuario = new javax.swing.JTextField();
+        btnSignup = new javax.swing.JButton();
+        txtUsername = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        txtClave = new javax.swing.JPasswordField();
+        txtPassword = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
@@ -69,12 +69,12 @@ public class Login extends javax.swing.JFrame implements VistaLogin {
         jLabel2.setForeground(new java.awt.Color(102, 102, 102));
         jLabel2.setText("CONTRASEÑA");
 
-        btnIngresar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btnIngresar.setForeground(new java.awt.Color(102, 102, 102));
-        btnIngresar.setText("INGRESAR");
-        btnIngresar.addActionListener(new java.awt.event.ActionListener() {
+        btnSignin.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnSignin.setForeground(new java.awt.Color(102, 102, 102));
+        btnSignin.setText("INGRESAR");
+        btnSignin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnIngresarActionPerformed(evt);
+                btnSigninActionPerformed(evt);
             }
         });
 
@@ -82,15 +82,15 @@ public class Login extends javax.swing.JFrame implements VistaLogin {
         jLabel3.setForeground(new java.awt.Color(102, 102, 102));
         jLabel3.setText("Manment");
 
-        btnRegistro.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btnRegistro.setForeground(new java.awt.Color(102, 102, 102));
-        btnRegistro.setText("CREAR NUEVO USUARIO");
+        btnSignup.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnSignup.setForeground(new java.awt.Color(102, 102, 102));
+        btnSignup.setText("NUEVO USUARIO");
 
-        txtUsuario.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        txtUsuario.setForeground(new java.awt.Color(102, 102, 102));
-        txtUsuario.addActionListener(new java.awt.event.ActionListener() {
+        txtUsername.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        txtUsername.setForeground(new java.awt.Color(102, 102, 102));
+        txtUsername.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtUsuarioActionPerformed(evt);
+                txtUsernameActionPerformed(evt);
             }
         });
 
@@ -98,9 +98,9 @@ public class Login extends javax.swing.JFrame implements VistaLogin {
         jLabel4.setForeground(new java.awt.Color(102, 102, 102));
         jLabel4.setText("Store");
 
-        txtClave.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        txtClave.setForeground(new java.awt.Color(102, 102, 102));
-        txtClave.setPreferredSize(new java.awt.Dimension(111, 26));
+        txtPassword.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        txtPassword.setForeground(new java.awt.Color(102, 102, 102));
+        txtPassword.setPreferredSize(new java.awt.Dimension(111, 26));
 
         javax.swing.GroupLayout panelLayout = new javax.swing.GroupLayout(panel);
         panel.setLayout(panelLayout);
@@ -110,50 +110,44 @@ public class Login extends javax.swing.JFrame implements VistaLogin {
                 .addGap(53, 53, 53)
                 .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelLayout.createSequentialGroup()
-                        .addGap(63, 63, 63)
-                        .addComponent(btnRegistro))
+                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(panelLayout.createSequentialGroup()
                         .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel2)
                             .addComponent(jLabel1))
                         .addGap(18, 18, 18)
                         .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txtUsuario)
-                            .addComponent(txtClave, javax.swing.GroupLayout.DEFAULT_SIZE, 186, Short.MAX_VALUE)))
-                    .addGroup(panelLayout.createSequentialGroup()
-                        .addGap(99, 99, 99)
-                        .addComponent(btnIngresar))
-                    .addGroup(panelLayout.createSequentialGroup()
-                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(btnSignup, javax.swing.GroupLayout.DEFAULT_SIZE, 186, Short.MAX_VALUE)
+                            .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(btnSignin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(txtUsername)
+                                .addComponent(txtPassword, javax.swing.GroupLayout.DEFAULT_SIZE, 186, Short.MAX_VALUE)))))
                 .addContainerGap(56, Short.MAX_VALUE))
         );
         panelLayout.setVerticalGroup(
             panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelLayout.createSequentialGroup()
-                .addContainerGap(23, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelLayout.createSequentialGroup()
                         .addGap(11, 11, 11)
                         .addComponent(jLabel4))
                     .addComponent(jLabel3))
-                .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panelLayout.createSequentialGroup()
-                        .addGap(39, 39, 39)
-                        .addComponent(jLabel1))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelLayout.createSequentialGroup()
-                        .addGap(33, 33, 33)
-                        .addComponent(txtUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(33, 33, 33)
+                .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1))
                 .addGap(18, 18, 18)
                 .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(txtClave, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(48, 48, 48)
-                .addComponent(btnIngresar)
+                    .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(btnRegistro)
-                .addGap(67, 67, 67))
+                .addComponent(btnSignin, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(btnSignup, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(82, 82, 82))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -164,26 +158,24 @@ public class Login extends javax.swing.JFrame implements VistaLogin {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addComponent(panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(panel, javax.swing.GroupLayout.PREFERRED_SIZE, 333, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnIngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIngresarActionPerformed
+    private void btnSigninActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSigninActionPerformed
 
-        String usuario = txtUsuario.getText().trim();
-        String clave = txtClave.getText().trim();
+        String usuario = txtUsername.getText().trim();
+        String clave = txtPassword.getText().trim();
 
         controlador.iniciarSesion(clave, usuario);
 
-    }//GEN-LAST:event_btnIngresarActionPerformed
+    }//GEN-LAST:event_btnSigninActionPerformed
 
-    private void txtUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUsuarioActionPerformed
+    private void txtUsernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUsernameActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtUsuarioActionPerformed
+    }//GEN-LAST:event_txtUsernameActionPerformed
 
     /**
      * @param args the command line arguments
@@ -198,10 +190,10 @@ public class Login extends javax.swing.JFrame implements VistaLogin {
                 }
             }
         } catch (Exception ex) {
-            Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            Logger.getLogger(Signin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
 
-        Login login = new Login();
+        Signin login = new Signin();
         login.setLocationRelativeTo(null);
         login.setTitle("Inicio de sesión");
         login.setVisible(true);
@@ -209,15 +201,15 @@ public class Login extends javax.swing.JFrame implements VistaLogin {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnIngresar;
-    private javax.swing.JButton btnRegistro;
+    private javax.swing.JButton btnSignin;
+    private javax.swing.JButton btnSignup;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel panel;
-    private javax.swing.JPasswordField txtClave;
-    private javax.swing.JTextField txtUsuario;
+    private javax.swing.JPasswordField txtPassword;
+    private javax.swing.JTextField txtUsername;
     // End of variables declaration//GEN-END:variables
     
     
@@ -235,7 +227,7 @@ public class Login extends javax.swing.JFrame implements VistaLogin {
     
     
     @Override
-    public void onSuccess(Usuario usuario) {
+    public void onSuccess(User usuario) {
         Mensaje.info(this, "Exito");
     }
     
