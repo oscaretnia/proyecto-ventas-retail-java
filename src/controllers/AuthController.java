@@ -1,9 +1,9 @@
 
-package controlador;
+package controllers;
 
-import modelo.AuthService;
-import modelo.User;
-import vistas.SignView;
+import models.AuthService;
+import models.User;
+import views.SignView;
 
 
 public class AuthController {
@@ -17,15 +17,15 @@ public class AuthController {
         this.view = vista;
     }
     
-    public void iniciarSesion(String username, String password) {
-        User user = model.validarUsuario(username, password);
+    public void signin(String username, String password) {
+        User user = model.validUser(username, password);
         
         response(user, "No se pudo inicar sesión!");
         
     }
     
-    public void registrarUsuario(String name, String lastname, String position, String username, String email, String password) {
-        User user = model.registerUser(name, lastname, position, username, email, password);
+    public void signup(String name, String lastname, String position, String birthdate, String gender, String username, String email, String password) {
+        User user = model.registerUser(name, lastname, position, birthdate, gender, username, email, password);
         
         response(user, "No se pudo registrar el usuario!");
     }

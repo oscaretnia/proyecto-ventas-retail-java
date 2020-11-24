@@ -1,13 +1,13 @@
-package vistas;
+package views;
 
-import controlador.AuthController;
+import controllers.AuthController;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
-import modelo.User;
-import util.Mensaje;
+import models.User;
+import util.Message;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -20,20 +20,20 @@ import util.Mensaje;
  */
 public class Signin extends javax.swing.JFrame implements SignView {
 
-    AuthController controlador;
+    private final AuthController controller;
 
     /**
      * Creates new form Login
      */
-    Contenido2 ejemplo = new Contenido2();
+    Content content = new Content();
 
     public Signin() {
-        this.setContentPane(ejemplo);
+        setContentPane(content);
         setResizable(false);
         initComponents();
 
-        //Controlador
-        controlador = new AuthController(this);
+        //Controller
+        controller = new AuthController(this);
     }
 
     /**
@@ -85,14 +85,14 @@ public class Signin extends javax.swing.JFrame implements SignView {
         btnSignup.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnSignup.setForeground(new java.awt.Color(102, 102, 102));
         btnSignup.setText("NUEVO USUARIO");
+        btnSignup.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSignupActionPerformed(evt);
+            }
+        });
 
         txtUsername.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         txtUsername.setForeground(new java.awt.Color(102, 102, 102));
-        txtUsername.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtUsernameActionPerformed(evt);
-            }
-        });
 
         jLabel4.setFont(new java.awt.Font("Vivaldi", 0, 36)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(102, 102, 102));
@@ -120,10 +120,9 @@ public class Signin extends javax.swing.JFrame implements SignView {
                         .addGap(18, 18, 18)
                         .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(btnSignup, javax.swing.GroupLayout.DEFAULT_SIZE, 186, Short.MAX_VALUE)
-                            .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(btnSignin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(txtUsername)
-                                .addComponent(txtPassword, javax.swing.GroupLayout.DEFAULT_SIZE, 186, Short.MAX_VALUE)))))
+                            .addComponent(btnSignin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(txtUsername)
+                            .addComponent(txtPassword, javax.swing.GroupLayout.DEFAULT_SIZE, 186, Short.MAX_VALUE))))
                 .addContainerGap(56, Short.MAX_VALUE))
         );
         panelLayout.setVerticalGroup(
@@ -166,39 +165,18 @@ public class Signin extends javax.swing.JFrame implements SignView {
 
     private void btnSigninActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSigninActionPerformed
 
-        String usuario = txtUsername.getText().trim();
-        String clave = txtPassword.getText().trim();
+        String username = txtUsername.getText().trim();
+        String password = txtPassword.getText().trim();
 
-        controlador.iniciarSesion(clave, usuario);
+        controller.signin(username, password);
 
     }//GEN-LAST:event_btnSigninActionPerformed
 
-    private void txtUsernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUsernameActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtUsernameActionPerformed
+    private void btnSignupActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSignupActionPerformed
+        new Signup().start();
+        this.dispose();
+    }//GEN-LAST:event_btnSignupActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Windows".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (Exception ex) {
-            Logger.getLogger(Signin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-
-        Signin login = new Signin();
-        login.setLocationRelativeTo(null);
-        login.setTitle("Inicio de sesión");
-        login.setVisible(true);
-
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnSignin;
@@ -213,7 +191,7 @@ public class Signin extends javax.swing.JFrame implements SignView {
     // End of variables declaration//GEN-END:variables
     
     
-    class Contenido2 extends JPanel {
+    private class Content extends JPanel {
 
         private Image imagen;
 
@@ -228,12 +206,19 @@ public class Signin extends javax.swing.JFrame implements SignView {
     
     @Override
     public void onSuccess(User usuario) {
-        Mensaje.info(this, "Exito");
+        Message.info(this, "Exito");
     }
     
     @Override
     public void onError(String mensaje) {
-        Mensaje.error(this, "Pailas");
+        Message.error(this, "Falló al intentar iniciar sesión");
+    }
+    
+    public void start() {
+        Signin login = new Signin();
+        login.setLocationRelativeTo(null);
+        login.setTitle("Inicio de sesión");
+        login.setVisible(true);
     }
     
     

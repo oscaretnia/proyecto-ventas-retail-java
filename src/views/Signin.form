@@ -63,11 +63,9 @@
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
                               <Component id="btnSignup" pref="186" max="32767" attributes="0"/>
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="btnSignin" max="32767" attributes="0"/>
-                                  <Component id="txtUsername" max="32767" attributes="0"/>
-                                  <Component id="txtPassword" pref="186" max="32767" attributes="0"/>
-                              </Group>
+                              <Component id="btnSignin" max="32767" attributes="0"/>
+                              <Component id="txtUsername" max="32767" attributes="0"/>
+                              <Component id="txtPassword" pref="186" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -163,6 +161,9 @@
             </Property>
             <Property name="text" type="java.lang.String" value="NUEVO USUARIO"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSignupActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="txtUsername">
           <Properties>
@@ -173,9 +174,6 @@
               <Color blue="66" green="66" red="66" type="rgb"/>
             </Property>
           </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtUsernameActionPerformed"/>
-          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel4">
           <Properties>

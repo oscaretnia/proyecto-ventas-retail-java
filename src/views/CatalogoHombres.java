@@ -1,4 +1,4 @@
-package vistas;
+package views;
 
 import java.awt.Graphics;
 import java.awt.Image;
