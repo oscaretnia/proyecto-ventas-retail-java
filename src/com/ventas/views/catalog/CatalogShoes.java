@@ -1,12 +1,8 @@
 package com.ventas.views.catalog;
 
 import com.ventas.controllers.CatalogController;
-import com.ventas.models.Sale;
 import com.ventas.util.Message;
-import java.awt.Graphics;
-import java.awt.Image;
-import javax.swing.ImageIcon;
-import javax.swing.JPanel;
+import com.ventas.views.Content;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -22,10 +18,10 @@ public class CatalogShoes extends javax.swing.JFrame implements CatalogView {
     private final CatalogController controller;
     
     
-    Content content = new Content();
+    Content content = new Content("zapatos-hombre-portada.jpg");
 
     public CatalogShoes() {
-        this.setContentPane(content);
+        setContentPane(content);
         setResizable(false);
         initComponents();
         
@@ -223,7 +219,7 @@ public class CatalogShoes extends javax.swing.JFrame implements CatalogView {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(52, 52, 52)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 143, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 198, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(btnSale, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -288,42 +284,6 @@ public class CatalogShoes extends javax.swing.JFrame implements CatalogView {
        }
     }//GEN-LAST:event_btnSaleActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(CatalogShoes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(CatalogShoes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(CatalogShoes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(CatalogShoes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new CatalogShoes().setVisible(true);
-            }
-        });
-    }
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCancel;
     private javax.swing.JButton btnSale;
@@ -370,21 +330,8 @@ public class CatalogShoes extends javax.swing.JFrame implements CatalogView {
     private javax.swing.JSpinner txtQty;
     // End of variables declaration//GEN-END:variables
 
-    private class Content extends JPanel {
-
-        private Image imagen;
-
-        @Override
-        public void paint(Graphics g) {
-            imagen = new ImageIcon(getClass().getResource("/com/ventas/assets/zapatos-hombre-portada.jpg")).getImage();
-            g.drawImage(imagen, 0, 0, getWidth(), getHeight(), this);
-            setOpaque(false);
-            super.paint(g);
-        }
-    }
-
     @Override
-    public void onSuccess(Sale sale) {
+    public void onSuccess() {
         Message.info(this, "La compra fue exitosa");
     }
     
@@ -396,5 +343,12 @@ public class CatalogShoes extends javax.swing.JFrame implements CatalogView {
     @Override
     public void showCatalog(String[] catalog) {
         listShoes.setListData(catalog);
+    }
+    
+    public void start() {
+        CatalogShoes catalog = new CatalogShoes();
+        catalog.setLocationRelativeTo(null);
+        catalog.setTitle("Catalogo de accesorios");
+        catalog.setVisible(true);
     }
 }

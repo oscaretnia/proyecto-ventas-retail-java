@@ -5,15 +5,13 @@
  */
 package com.ventas.views.catalog;
 
-import com.ventas.models.Sale;
-
 /**
  *
  * @author oscaretnia
  */
 public interface CatalogView {
     
-    public void onSuccess(Sale sale);
+    public void onSuccess();
     
     public void onError(String messaje);
     

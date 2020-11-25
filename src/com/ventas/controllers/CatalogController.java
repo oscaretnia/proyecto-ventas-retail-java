@@ -26,6 +26,7 @@ public class CatalogController {
     public void doSale(String product, String qty) {
         int quantity = Integer.parseInt(qty);
         model.makeSale(product, quantity, new Date().toString());
+        view.onSuccess();
     }
     
     public void showCatalog(String category) {

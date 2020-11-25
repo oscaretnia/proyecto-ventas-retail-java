@@ -1,12 +1,8 @@
 package com.ventas.views.catalog;
 
 import com.ventas.controllers.CatalogController;
-import com.ventas.models.Sale;
 import com.ventas.util.Message;
-import java.awt.Graphics;
-import java.awt.Image;
-import javax.swing.ImageIcon;
-import javax.swing.JPanel;
+import com.ventas.views.Content;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -22,7 +18,7 @@ public class CatalogMens extends javax.swing.JFrame implements CatalogView {
     private final CatalogController controller;
     
     
-    Content content = new Content();
+    Content content = new Content("image.jpg");
 
     public CatalogMens() {
         this.setContentPane(content);
@@ -53,6 +49,7 @@ public class CatalogMens extends javax.swing.JFrame implements CatalogView {
         txtQty = new javax.swing.JSpinner();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(450, 397));
 
         listMens.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         listMens.setForeground(new java.awt.Color(102, 102, 102));
@@ -89,7 +86,7 @@ public class CatalogMens extends javax.swing.JFrame implements CatalogView {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(52, 52, 52)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 158, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 198, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(btnSale, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -130,42 +127,6 @@ public class CatalogMens extends javax.swing.JFrame implements CatalogView {
        }
     }//GEN-LAST:event_btnSaleActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(CatalogMens.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(CatalogMens.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(CatalogMens.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(CatalogMens.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new CatalogMens().setVisible(true);
-            }
-        });
-    }
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCancel;
     private javax.swing.JButton btnSale;
@@ -175,22 +136,8 @@ public class CatalogMens extends javax.swing.JFrame implements CatalogView {
     private javax.swing.JSpinner txtQty;
     // End of variables declaration//GEN-END:variables
     
-    
-    private class Content extends JPanel {
-
-        private Image imagen;
-
-        @Override
-        public void paint(Graphics g) {
-            imagen = new ImageIcon(getClass().getResource("/com/ventas/assets/image.jpg")).getImage();
-            g.drawImage(imagen, 0, 0, getWidth(), getHeight(), this);
-            setOpaque(false);
-            super.paint(g);
-        }
-    }
-
     @Override
-    public void onSuccess(Sale sale) {
+    public void onSuccess() {
         Message.info(this, "La compra fue exitosa");
     }
     
@@ -202,5 +149,12 @@ public class CatalogMens extends javax.swing.JFrame implements CatalogView {
     @Override
     public void showCatalog(String[] catalog) {
         listMens.setListData(catalog);
+    }
+    
+    public void start() {
+        CatalogMens catalog = new CatalogMens();
+        catalog.setLocationRelativeTo(null);
+        catalog.setTitle("Catalogo de accesorios");
+        catalog.setVisible(true);
     }
 }

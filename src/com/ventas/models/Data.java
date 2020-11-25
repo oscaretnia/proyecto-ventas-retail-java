@@ -12,13 +12,16 @@ public class Data {
     List<User> users;
     List<Product> products;
     List<Sale> sales;
+    List<Delivery> deliveries;
     
     private Data() {
         users = new LinkedList<>();
         products = new LinkedList<>();
         sales = new LinkedList<>();
+        deliveries = new LinkedList<>();
         
-        products.add(new Product("Producto 1", "Accesorios", "Producto 1", 10, 1000));
+        products.add(new Product("Producto 1", "Hombres", "Producto 1", 10, 1000));
+        products.add(new Product("Producto 2", "Hombres", "Producto 2", 10, 1000));
     }
     
     public List<User> getUsers() {
@@ -43,9 +46,17 @@ public class Data {
     
     public void addSale(Sale sale) {
         this.sales.add(sale);
-        System.out.println(sales.size());
     }
-    
+
+    public List<Delivery> getDeliveries() {
+        return deliveries;
+    }
+
+    public void addDelivery(Delivery delivery) {
+        this.deliveries.add(delivery);
+        System.out.println(deliveries.size());
+    }
+            
     public static Data getInstance() {
         if (instance == null) {
             instance = new Data();
