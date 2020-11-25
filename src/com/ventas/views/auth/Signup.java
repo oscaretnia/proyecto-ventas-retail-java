@@ -1,13 +1,13 @@
-package views;
+package com.ventas.views.auth;
 
-import controllers.AuthController;
+import com.ventas.controllers.AuthController;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
-import models.User;
-import util.Message;
+import com.ventas.models.User;
+import com.ventas.util.Message;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -301,7 +301,7 @@ public class Signup extends javax.swing.JFrame implements SignView {
 
         @Override
         public void paint(Graphics g) {
-            imagen = new ImageIcon(getClass().getResource("/assets/login2.png")).getImage();
+            imagen = new ImageIcon(getClass().getResource("/com/ventas/assets/login2.png")).getImage();
             g.drawImage(imagen, 0, 0, getWidth(), getHeight(), this);
             setOpaque(false);
             super.paint(g);

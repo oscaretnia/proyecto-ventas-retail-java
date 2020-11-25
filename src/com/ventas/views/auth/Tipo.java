@@ -1,4 +1,4 @@
-package views;
+package com.ventas.views.auth;
 
 import java.awt.Graphics;
 import java.awt.Image;
@@ -10,7 +10,6 @@ import javax.swing.JPanel;
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 /**
  *
  * @author tlser
@@ -20,8 +19,8 @@ public class Tipo extends javax.swing.JFrame {
     /**
      * Creates new form Login
      */
-    Contenido ejemplo = new Contenido();
-    
+    Content ejemplo = new Content();
+
     public Tipo() {
         this.setContentPane(ejemplo);
         setResizable(false);
@@ -148,17 +147,17 @@ public class Tipo extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     // End of variables declaration//GEN-END:variables
 
-    class Contenido extends JPanel
-    {
-    private Image imagen;
-   
-    public void paint (Graphics g)
-    {
-    imagen = new ImageIcon(getClass().getResource("/Contenido/login.jpg")).getImage();
-    g.drawImage(imagen, 0, 0, getWidth(), getHeight(), this);
-    setOpaque(false);
-    super.paint(g);
-    }        
+    private class Content extends JPanel {
+
+        private Image imagen;
+
+        @Override
+        public void paint(Graphics g) {
+            imagen = new ImageIcon(getClass().getResource("/com/ventas/assets/login.png")).getImage();
+            g.drawImage(imagen, 0, 0, getWidth(), getHeight(), this);
+            setOpaque(false);
+            super.paint(g);
+        }
     }
-   
+
 }

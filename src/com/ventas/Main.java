@@ -1,6 +1,8 @@
+package com.ventas;
+
 
 import javax.swing.UnsupportedLookAndFeelException;
-import views.Signin;
+import com.ventas.views.auth.Signin;
 
 
 

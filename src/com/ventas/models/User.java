@@ -1,5 +1,5 @@
 
-package models;
+package com.ventas.models;
 
 
 public class User {

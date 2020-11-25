@@ -1,6 +1,8 @@
 
-package models;
+package com.ventas.models.services;
 
+import com.ventas.models.Data;
+import com.ventas.models.User;
 import java.util.List;
 
 
@@ -10,7 +12,7 @@ public class AuthService {
     
     public User validUser(String username, String password) {
         
-        List<User> users = db.get();
+        List<User> users = db.getUsers();
         
         for (User user : users) {
             
@@ -27,7 +29,7 @@ public class AuthService {
     
     public User registerUser(String name, String lastname, String position, String birthdate, String gender, String username, String email, String password) {
         User user = new User(name, lastname, position, birthdate, gender, username, email, password);
-        db.add(user);
+        db.addUser(user);
         return user;
     }
     

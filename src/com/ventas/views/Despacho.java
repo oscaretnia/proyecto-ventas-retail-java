@@ -1,4 +1,4 @@
-package views;
+package com.ventas.views;
 
 import java.awt.Graphics;
 import java.awt.Image;

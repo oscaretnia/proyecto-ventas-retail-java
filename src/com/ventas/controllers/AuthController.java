@@ -1,9 +1,9 @@
 
-package controllers;
+package com.ventas.controllers;
 
-import models.AuthService;
-import models.User;
-import views.SignView;
+import com.ventas.models.services.AuthService;
+import com.ventas.models.User;
+import com.ventas.views.auth.SignView;
 
 
 public class AuthController {
