@@ -1,8 +1,7 @@
 package com.ventas;
 
 
-import javax.swing.UnsupportedLookAndFeelException;
-import com.ventas.views.auth.Signin;
+import com.ventas.views.auth.RoleView;
 
 
 
@@ -31,7 +30,7 @@ public class Main {
             System.err.println(ex);
         }
         
-        new Signin().start();
+        new RoleView().start();
         
     }
     

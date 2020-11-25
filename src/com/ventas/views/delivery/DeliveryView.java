@@ -193,10 +193,17 @@ public class DeliveryView extends javax.swing.JFrame {
     
 
     public void onSuccess() {
-        Message.info(this, "El domicion fue agendado de forma exitosa");
+        Message.info(this, "El domicilio fue agendado de forma exitosa");
     }
     
     public void onError(String message) {
         Message.error(this, message);
+    }
+    
+    public void start() {
+        DeliveryView catalog = new DeliveryView();
+        catalog.setLocationRelativeTo(null);
+        catalog.setTitle("Pide tu domicilio");
+        catalog.setVisible(true);
     }
 }
