@@ -152,9 +152,8 @@ public class CatalogAccessories extends javax.swing.JFrame implements CatalogVie
     }
     
     public void start() {
-        CatalogAccessories catalog = new CatalogAccessories();
-        catalog.setLocationRelativeTo(null);
-        catalog.setTitle("Catalogo de accesorios");
-        catalog.setVisible(true);
+        setLocationRelativeTo(null);
+        setTitle("Catalogo de accesorios");
+        setVisible(true);
     }
 }

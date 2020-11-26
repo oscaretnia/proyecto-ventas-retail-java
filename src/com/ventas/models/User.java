@@ -6,7 +6,7 @@ public class User {
     
     private String name;
     private String lastname;
-    private String position;
+    private String role;
     private String birthdate;
     private String gender;
     private String username;
@@ -14,10 +14,10 @@ public class User {
     private String password;
     
 
-    public User(String name, String lastname, String position, String birthdate, String gender, String username, String email, String password) {
+    public User(String name, String lastname, String role, String birthdate, String gender, String username, String email, String password) {
         this.name = name;
         this.lastname = lastname;
-        this.position = position;
+        this.role = role;
         this.birthdate = birthdate;
         this.gender = gender;
         this.username = username;
@@ -42,12 +42,12 @@ public class User {
         this.lastname = lastname;
     }
 
-    public String getPosition() {
-        return position;
+    public String getRole() {
+        return role;
     }
 
-    public void setPosition(String position) {
-        this.position = position;
+    public void setRole(String role) {
+        this.role = role;
     }
     
     public String getBirthdate() {

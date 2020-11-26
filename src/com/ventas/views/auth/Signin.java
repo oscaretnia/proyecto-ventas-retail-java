@@ -3,7 +3,6 @@ package com.ventas.views.auth;
 import com.ventas.controllers.AuthController;
 import java.awt.Graphics;
 import java.awt.Image;
-import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 import com.ventas.models.User;
@@ -21,16 +20,20 @@ import com.ventas.util.Message;
 public class Signin extends javax.swing.JFrame implements SignView {
 
     private final AuthController controller;
+    
+    private final String role;
 
     /**
      * Creates new form Login
      */
     Content content = new Content();
 
-    public Signin() {
+    public Signin(String role) {
         setContentPane(content);
         setResizable(false);
         initComponents();
+        
+        this.role = role;
 
         //Controller
         controller = new AuthController(this);
@@ -168,7 +171,7 @@ public class Signin extends javax.swing.JFrame implements SignView {
         String username = txtUsername.getText().trim();
         String password = txtPassword.getText().trim();
 
-        controller.signin(username, password);
+        controller.signin(username, password, role);
 
     }//GEN-LAST:event_btnSigninActionPerformed
 
@@ -215,10 +218,9 @@ public class Signin extends javax.swing.JFrame implements SignView {
     }
     
     public void start() {
-        Signin login = new Signin();
-        login.setLocationRelativeTo(null);
-        login.setTitle("Inicio de sesión");
-        login.setVisible(true);
+        setLocationRelativeTo(null);
+        setTitle("Inicio de sesión");
+        setVisible(true);
     }
     
     

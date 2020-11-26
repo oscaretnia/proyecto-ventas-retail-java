@@ -152,9 +152,8 @@ public class CatalogMens extends javax.swing.JFrame implements CatalogView {
     }
     
     public void start() {
-        CatalogMens catalog = new CatalogMens();
-        catalog.setLocationRelativeTo(null);
-        catalog.setTitle("Catalogo de hombres");
-        catalog.setVisible(true);
+        setLocationRelativeTo(null);
+        setTitle("Catalogo de hombres");
+        setVisible(true);
     }
 }

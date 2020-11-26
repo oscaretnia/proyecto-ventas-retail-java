@@ -346,9 +346,8 @@ public class CatalogShoes extends javax.swing.JFrame implements CatalogView {
     }
     
     public void start() {
-        CatalogShoes catalog = new CatalogShoes();
-        catalog.setLocationRelativeTo(null);
-        catalog.setTitle("Catalogo de zapatos");
-        catalog.setVisible(true);
+        setLocationRelativeTo(null);
+        setTitle("Catalogo de zapatos");
+        setVisible(true);
     }
 }

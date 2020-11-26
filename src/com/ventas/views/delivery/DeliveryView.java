@@ -201,9 +201,8 @@ public class DeliveryView extends javax.swing.JFrame {
     }
     
     public void start() {
-        DeliveryView catalog = new DeliveryView();
-        catalog.setLocationRelativeTo(null);
-        catalog.setTitle("Pide tu domicilio");
-        catalog.setVisible(true);
+        setLocationRelativeTo(null);
+        setTitle("Pide tu domicilio");
+        setVisible(true);
     }
 }

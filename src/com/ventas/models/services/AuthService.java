@@ -3,16 +3,18 @@ package com.ventas.models.services;
 
 import com.ventas.models.Data;
 import com.ventas.models.User;
+import java.util.LinkedList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 
 public class AuthService {
     
     Data db = Data.getInstance();
     
-    public User validUser(String username, String password) {
+    public User validUser(String username, String password, String role) {
         
-        List<User> users = db.getUsers();
+        List<User> users = db.getUsers().stream().filter(u -> u.getRole().equals(role)).collect(Collectors.toCollection(LinkedList::new));
         
         for (User user : users) {
             

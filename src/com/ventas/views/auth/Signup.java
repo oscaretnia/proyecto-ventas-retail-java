@@ -90,7 +90,7 @@ public class Signup extends javax.swing.JFrame implements SignView {
         jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(102, 102, 102));
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel6.setText("CARGO");
+        jLabel6.setText("ROL");
 
         jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(102, 102, 102));
@@ -324,9 +324,8 @@ public class Signup extends javax.swing.JFrame implements SignView {
     }
     
     public void start() {
-        Signup register = new Signup();
-        register.setLocationRelativeTo(null);
-        register.setTitle("Registro de nuevo usuario");
-        register.setVisible(true);
+        setLocationRelativeTo(null);
+        setTitle("Registro de nuevo usuario");
+        setVisible(true);
     }
 }

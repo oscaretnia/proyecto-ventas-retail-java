@@ -17,8 +17,8 @@ public class AuthController {
         this.view = vista;
     }
     
-    public void signin(String username, String password) {
-        User user = model.validUser(username, password);
+    public void signin(String username, String password, String role) {
+        User user = model.validUser(username, password, role);
         
         response(user, "No se pudo inicar sesión!");
         
