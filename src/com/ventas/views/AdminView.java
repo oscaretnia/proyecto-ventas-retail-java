@@ -120,7 +120,7 @@ public class AdminView extends javax.swing.JFrame {
     }//GEN-LAST:event_btnModifyProfileMouseClicked
 
     private void btnListSalesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnListSalesMouseClicked
-        new SaleView().start();
+        new SaleView(userId).start();
         this.dispose();
     }//GEN-LAST:event_btnListSalesMouseClicked
 
