@@ -29,6 +29,8 @@ public class Data {
         
         products.add(new Product("Producto 1", "Hombres", "Producto 1", 10, 1000));
         products.add(new Product("Producto 2", "Hombres", "Producto 2", 10, 1000));
+        
+        users.add(new User("Sophy", "Rico", "Administrador", "1994-Febrero-11", "Femenino", "sophyrico", "sophyrico@mail.com", "12345678"));
     }
     
     public List<User> getUsers() {
