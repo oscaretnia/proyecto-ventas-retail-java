@@ -6,7 +6,7 @@
 package com.ventas.controllers;
 
 import com.ventas.models.services.ShipmentService;
-import com.ventas.views.ShipmentView;
+import com.ventas.views.delivery.ShipmentView;
 
 /**
  *

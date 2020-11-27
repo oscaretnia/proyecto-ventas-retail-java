@@ -1,9 +1,6 @@
-package com.ventas.views;
+package com.ventas.views.admin;
 
-import java.awt.Graphics;
-import java.awt.Image;
-import javax.swing.ImageIcon;
-import javax.swing.JPanel;
+import com.ventas.views.Content;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -20,10 +17,10 @@ public class ModificacionPerfil extends javax.swing.JFrame {
     /**
      * Creates new form ModificacionPerfil
      */
-    Contenido3 ejemplo = new Contenido3();
+    Content ejemplo = new Content("signup.png");
 
     public ModificacionPerfil() {
-        this.setContentPane(ejemplo);
+        setContentPane(ejemplo);
         setResizable(false);
         initComponents();
     }
@@ -345,16 +342,5 @@ public class ModificacionPerfil extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;
     // End of variables declaration//GEN-END:variables
-class Contenido3 extends JPanel
-    {
-    private Image imagen;
-   
-    public void paint (Graphics g)
-    {
-    imagen = new ImageIcon(getClass().getResource("/Contenido/login2.png")).getImage();
-    g.drawImage(imagen, 0, 0, getWidth(), getHeight(), this);
-    setOpaque(false);
-    super.paint(g);
-    }        
-    }
+
 }

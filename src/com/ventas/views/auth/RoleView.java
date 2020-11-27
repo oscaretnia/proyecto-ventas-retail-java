@@ -16,7 +16,7 @@ public class RoleView extends javax.swing.JFrame {
     /**
      * Creates new form Login
      */
-    Content content = new Content("login.png");
+    Content content = new Content("role-signin.png");
 
     public RoleView() {
         setContentPane(content);

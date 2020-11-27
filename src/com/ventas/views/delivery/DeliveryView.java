@@ -21,7 +21,7 @@ public class DeliveryView extends javax.swing.JFrame {
     /**
      * Creates new form Domicilio
      */
-    Content content = new Content("despacho.jpg");
+    Content content = new Content("shipments.jpg");
 
     public DeliveryView() {
         setContentPane(content);

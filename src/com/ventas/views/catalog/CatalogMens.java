@@ -18,7 +18,7 @@ public class CatalogMens extends javax.swing.JFrame implements CatalogView {
     private final CatalogController controller;
     
     
-    Content content = new Content("image.jpg");
+    Content content = new Content("mens-catalog.jpg");
 
     public CatalogMens() {
         this.setContentPane(content);

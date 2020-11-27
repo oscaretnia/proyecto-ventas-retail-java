@@ -1,9 +1,6 @@
-package com.ventas.views;
+package com.ventas.views.admin;
 
-import java.awt.Graphics;
-import java.awt.Image;
-import javax.swing.ImageIcon;
-import javax.swing.JPanel;
+import com.ventas.views.Content;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -20,13 +17,15 @@ public class ComparativaMensual extends javax.swing.JFrame {
     /**
      * Creates new form ComparativaMensual
      */
-   Contenido2 ejemplo = new Contenido2();
+   Content content = new Content("analitics.jpg");
 
     public ComparativaMensual() {
-        this.setContentPane(ejemplo);
+        setContentPane(content);
         setResizable(false);
         initComponents();
     }
+    
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -165,16 +164,5 @@ public class ComparativaMensual extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
-class Contenido2 extends JPanel
-    {
-    private Image imagen;
-   
-    public void paint (Graphics g)
-    {
-    imagen = new ImageIcon(getClass().getResource("/Contenido/descarga.jpeg.jpg")).getImage();
-    g.drawImage(imagen, 0, 0, getWidth(), getHeight(), this);
-    setOpaque(false);
-    super.paint(g);
-    }        
-    }
+
 }

@@ -1,10 +1,5 @@
 package com.ventas.views;
 
-import java.awt.Graphics;
-import java.awt.Image;
-import javax.swing.ImageIcon;
-import javax.swing.JPanel;
-
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -20,9 +15,10 @@ public class PerfilUsuario extends javax.swing.JFrame {
     /**
      * Creates new form PerfilUsuario
      */
-    Contenido4 ejemplo = new Contenido4();
+    Content content = new Content("profile.jpg");
+    
     public PerfilUsuario() {
-        this.setContentPane(ejemplo);
+        setContentPane(content);
         setResizable(false);
         initComponents();
          
@@ -212,16 +208,5 @@ public class PerfilUsuario extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     // End of variables declaration//GEN-END:variables
-class Contenido4 extends JPanel
-    {
-    private Image imagen;
-   
-    public void paint (Graphics g)
-    {
-    imagen = new ImageIcon(getClass().getResource("/Contenido/imagen.jpg")).getImage();
-    g.drawImage(imagen, 0, 0, getWidth(), getHeight(), this);
-    setOpaque(false);
-    super.paint(g);
-    }        
-    }
+
 }

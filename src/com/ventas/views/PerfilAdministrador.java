@@ -20,9 +20,10 @@ public class PerfilAdministrador extends javax.swing.JFrame {
     /**
      * Creates new form PerfilAdministrador
      */
-     Contenido4 ejemplo = new Contenido4();
+    Content content = new Content("admin.jpg");
+     
     public PerfilAdministrador() {
-       this.setContentPane(ejemplo);
+        setContentPane(content);
         setResizable(false);
         initComponents();
     }
@@ -210,16 +211,5 @@ public class PerfilAdministrador extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
-class Contenido4 extends JPanel
-    {
-    private Image imagen;
-   
-    public void paint (Graphics g)
-    {
-    imagen = new ImageIcon(getClass().getResource("/Contenido/descarga (1).jpg")).getImage();
-    g.drawImage(imagen, 0, 0, getWidth(), getHeight(), this);
-    setOpaque(false);
-    super.paint(g);
-    }        
-    }
+
 }

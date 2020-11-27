@@ -18,7 +18,7 @@ public class CatalogShoes extends javax.swing.JFrame implements CatalogView {
     private final CatalogController controller;
     
     
-    Content content = new Content("zapatos-hombre-portada.jpg");
+    Content content = new Content("shoes-catalog.jpg");
 
     public CatalogShoes() {
         setContentPane(content);

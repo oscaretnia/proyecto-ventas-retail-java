@@ -20,7 +20,7 @@ public class CatalogAccessories extends javax.swing.JFrame implements CatalogVie
     private final CatalogController controller;
     
     
-    Content content = new Content("complementos-hombres-2.jpg");
+    Content content = new Content("accessories-catalog.jpg");
 
     public CatalogAccessories() {
         this.setContentPane(content);

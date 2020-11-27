@@ -1,11 +1,8 @@
-package com.ventas.views;
+package com.ventas.views.delivery;
 
 import com.ventas.controllers.ShipmentController;
 import com.ventas.util.Message;
-import java.awt.Graphics;
-import java.awt.Image;
-import javax.swing.ImageIcon;
-import javax.swing.JPanel;
+import com.ventas.views.Content;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -22,7 +19,7 @@ public class ShipmentView extends javax.swing.JFrame {
     /**
      * Creates new form Compra
      */
-    Content content = new Content("despacho.jpg");
+    Content content = new Content("shipments.jpg");
 
     public ShipmentView() {
         setContentPane(content);
@@ -148,18 +145,6 @@ public class ShipmentView extends javax.swing.JFrame {
         controller.doShipment(txtDepartment.getText(), txtCity.getText(), txtNeighborhood.getText());
     }//GEN-LAST:event_btnDispachActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new ShipmentView().setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnDispach;

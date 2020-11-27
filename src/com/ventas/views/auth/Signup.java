@@ -1,13 +1,9 @@
 package com.ventas.views.auth;
 
 import com.ventas.controllers.AuthController;
-import java.awt.Graphics;
-import java.awt.Image;
-import java.util.logging.Logger;
-import javax.swing.ImageIcon;
-import javax.swing.JPanel;
 import com.ventas.models.entities.User;
 import com.ventas.util.Message;
+import com.ventas.views.Content;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -25,10 +21,10 @@ public class Signup extends javax.swing.JFrame implements SignView {
     /**
      * Creates new form Creacion
      */
-    Content content = new Content();
+    Content content = new Content("signup.png");
 
     public Signup() {
-        this.setContentPane(content);
+        setContentPane(content);
         setResizable(false);
         initComponents();
         
@@ -293,21 +289,7 @@ public class Signup extends javax.swing.JFrame implements SignView {
     private javax.swing.JTextField txtUsername;
     private javax.swing.JComboBox txtYear;
     // End of variables declaration//GEN-END:variables
-    
-    
-    private class Content extends JPanel {
-
-        private Image imagen;
-
-        @Override
-        public void paint(Graphics g) {
-            imagen = new ImageIcon(getClass().getResource("/com/ventas/assets/login2.png")).getImage();
-            g.drawImage(imagen, 0, 0, getWidth(), getHeight(), this);
-            setOpaque(false);
-            super.paint(g);
-        }
-    }
-    
+        
     
     @Override
     public void onSuccess(User user) {
