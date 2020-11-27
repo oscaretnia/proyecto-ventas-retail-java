@@ -1,6 +1,9 @@
 package com.ventas.views.admin;
 
+import com.ventas.controllers.SaleController;
 import com.ventas.views.Content;
+import java.util.Vector;
+import javax.swing.table.DefaultTableModel;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -12,17 +15,19 @@ import com.ventas.views.Content;
  *
  * @author tlser
  */
-public class ComparativaMensual extends javax.swing.JFrame {
+public class SaleView extends javax.swing.JFrame {
 
-    /**
-     * Creates new form ComparativaMensual
-     */
-   Content content = new Content("analitics.jpg");
+   
+   private final Content content = new Content("analitics.jpg");
+   private final SaleController controller;
 
-    public ComparativaMensual() {
+    public SaleView() {
         setContentPane(content);
         setResizable(false);
         initComponents();
+        
+        controller = new SaleController(this);
+        controller.showSales();
     }
     
     
@@ -39,7 +44,7 @@ public class ComparativaMensual extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tableSales = new javax.swing.JTable();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
 
@@ -48,23 +53,15 @@ public class ComparativaMensual extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Verdana", 0, 18)); // NOI18N
         jLabel1.setText("COMPARATIVA MENSUAL");
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tableSales.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
-                "MES", "VENTAS", "CRECIMIENTO", "% FRENTE AL MES ANTERIOR"
+                "Producto", "Precio Unitario", "Cantidad", "Fecha", "Total"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(tableSales);
 
         jLabel3.setFont(new java.awt.Font("Vivaldi", 2, 45)); // NOI18N
         jLabel3.setText("Manment");
@@ -121,39 +118,8 @@ public class ComparativaMensual extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ComparativaMensual.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ComparativaMensual.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ComparativaMensual.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ComparativaMensual.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new ComparativaMensual().setVisible(true);
-            }
-        });
+    public static void main(String[] args) {
+        new SaleView().start();
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -162,7 +128,20 @@ public class ComparativaMensual extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTable tableSales;
     // End of variables declaration//GEN-END:variables
 
+    public void start() {
+        setLocationRelativeTo(null);
+        setTitle("Listado de ventas");
+        setVisible(true);
+    }
+    
+    public void showSales(Vector<Vector<String>> row) {
+        DefaultTableModel modelo = (DefaultTableModel) tableSales.getModel();
+        row.forEach( r -> {
+            modelo.addRow(r);
+        });
+        
+    }
 }

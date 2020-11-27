@@ -3,6 +3,8 @@ package com.ventas.controllers;
 
 import com.ventas.models.services.AuthService;
 import com.ventas.models.entities.User;
+import com.ventas.views.AdminView;
+import com.ventas.views.ClientView;
 import com.ventas.views.auth.SignView;
 
 
@@ -32,7 +34,16 @@ public class AuthController {
     
     public void response(User user, String message) {
         if (user != null) {
-            view.onSuccess(user);
+            if (user.getRole().equals("Cliente")) {
+                new ClientView(user.getUsername()).start();
+                view.disposes();
+            }
+            
+            if (user.getRole().equals("Administrador")) {
+                new AdminView(user.getUsername()).start();
+                view.disposes();
+            }
+            
         } else {
             view.onError(message);
         }

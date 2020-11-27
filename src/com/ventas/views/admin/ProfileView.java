@@ -2,6 +2,7 @@ package com.ventas.views.admin;
 
 import com.ventas.controllers.ProfileController;
 import com.ventas.util.Message;
+import com.ventas.views.AdminView;
 import com.ventas.views.Content;
 
 /*
@@ -315,4 +316,6 @@ public class ProfileView extends javax.swing.JFrame {
         txtMonth.setSelectedItem(month);
         txtYear.setSelectedItem(year);
     }
+    
+    
 }

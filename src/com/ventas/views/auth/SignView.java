@@ -17,4 +17,6 @@ public interface SignView {
     
     public void onError(String mensaje);
     
+    public void disposes();
+    
 }

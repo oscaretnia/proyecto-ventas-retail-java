@@ -301,6 +301,11 @@ public class Signup extends javax.swing.JFrame implements SignView {
         Message.error(this, "Falló al registrar al usuario");
     }
     
+    @Override
+    public void disposes() {
+        this.dispose();
+    }
+    
     private String getBirthDate(String day, String month, String year) {
         return "" + year + "/" + month + "/" + day;
     }

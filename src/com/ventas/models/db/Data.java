@@ -27,10 +27,7 @@ public class Data {
         deliveries = new LinkedList<>();
         shipments = new LinkedList<>();
         
-        products.add(new Product("Producto 1", "Hombres", "Producto 1", 10, 1000));
-        products.add(new Product("Producto 2", "Hombres", "Producto 2", 10, 1000));
-        
-        users.add(new User("Sophy", "Rico", "Administrador", "1994-Febrero-11", "Femenino", "sophyrico", "sophyrico@mail.com", "12345678"));
+        setDummyData();        
     }
     
     public List<User> getUsers() {
@@ -78,6 +75,18 @@ public class Data {
             instance = new Data();
         }
         return instance;
+    }
+    
+    private void setDummyData() {
+        
+        Product p = new Product("Producto 1", "Hombres", "Producto 1", 10, 1000);
+        
+        products.add(p);
+        products.add(new Product("Producto 2", "Hombres", "Producto 2", 10, 1000));
+        
+        sales.add(new Sale(p, 12, "2020-02-11"));
+        
+        users.add(new User("Sophy", "Rico", "Administrador", "1994-Febrero-11", "Femenino", "sophyrico", "sophyrico@mail.com", "12345678"));
     }
     
 }

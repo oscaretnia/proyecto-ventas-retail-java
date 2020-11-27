@@ -174,7 +174,7 @@ public class Signin extends javax.swing.JFrame implements SignView {
 
     private void btnSignupActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSignupActionPerformed
         new Signup().start();
-        this.dispose();
+        dispose();
     }//GEN-LAST:event_btnSignupActionPerformed
 
 
@@ -198,6 +198,11 @@ public class Signin extends javax.swing.JFrame implements SignView {
     @Override
     public void onError(String mensaje) {
         Message.error(this, "Falló al intentar iniciar sesión");
+    }
+    
+    @Override
+    public void disposes() {
+        this.dispose();
     }
     
     public void start() {
