@@ -6,7 +6,7 @@ import java.awt.Image;
 import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
-import com.ventas.models.User;
+import com.ventas.models.entities.User;
 import com.ventas.util.Message;
 
 /*

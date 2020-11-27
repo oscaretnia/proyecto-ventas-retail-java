@@ -5,7 +5,7 @@
  */
 package com.ventas.views.auth;
 
-import com.ventas.models.User;
+import com.ventas.models.entities.User;
 
 /**
  *

@@ -1,10 +1,6 @@
 package com.ventas.views.auth;
 
 import com.ventas.views.Content;
-import java.awt.Graphics;
-import java.awt.Image;
-import javax.swing.ImageIcon;
-import javax.swing.JPanel;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -101,8 +97,10 @@ public class RoleView extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAccessActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAccessActionPerformed
-        new Signin(txtRole.getSelectedItem().toString()).start();
-        this.dispose();
+        if (txtRole.getSelectedIndex() > 0) {
+            new Signin(txtRole.getSelectedItem().toString()).start();
+            this.dispose();
+        }
     }//GEN-LAST:event_btnAccessActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

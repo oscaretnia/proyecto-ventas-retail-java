@@ -2,7 +2,7 @@
 package com.ventas.controllers;
 
 import com.ventas.models.services.AuthService;
-import com.ventas.models.User;
+import com.ventas.models.entities.User;
 import com.ventas.views.auth.SignView;
 
 

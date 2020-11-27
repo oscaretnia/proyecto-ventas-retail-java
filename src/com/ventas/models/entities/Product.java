@@ -1,5 +1,5 @@
 
-package com.ventas.models;
+package com.ventas.models.entities;
 
 
 public class Product {

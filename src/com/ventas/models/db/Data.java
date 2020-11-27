@@ -1,6 +1,11 @@
 
-package com.ventas.models;
+package com.ventas.models.db;
 
+import com.ventas.models.entities.Delivery;
+import com.ventas.models.entities.Product;
+import com.ventas.models.entities.Sale;
+import com.ventas.models.entities.Shipment;
+import com.ventas.models.entities.User;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -13,12 +18,14 @@ public class Data {
     List<Product> products;
     List<Sale> sales;
     List<Delivery> deliveries;
+    List<Shipment> shipments;
     
     private Data() {
         users = new LinkedList<>();
         products = new LinkedList<>();
         sales = new LinkedList<>();
         deliveries = new LinkedList<>();
+        shipments = new LinkedList<>();
         
         products.add(new Product("Producto 1", "Hombres", "Producto 1", 10, 1000));
         products.add(new Product("Producto 2", "Hombres", "Producto 2", 10, 1000));
@@ -54,7 +61,14 @@ public class Data {
 
     public void addDelivery(Delivery delivery) {
         this.deliveries.add(delivery);
-        System.out.println(deliveries.size());
+    }
+    
+    public List<Shipment> getShipments() {
+        return shipments;
+    }
+
+    public void addShipment(Shipment shipment) {
+        this.shipments.add(shipment);
     }
             
     public static Data getInstance() {

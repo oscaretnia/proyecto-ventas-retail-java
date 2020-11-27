@@ -6,23 +6,23 @@
 package com.ventas.models.services;
 
 import com.ventas.models.db.Data;
-import com.ventas.models.entities.Delivery;
+import com.ventas.models.entities.Shipment;
 import java.util.List;
 
 /**
  *
  * @author oscaretnia
  */
-public class DeliveryService {
+public class ShipmentService {
     
     Data db = Data.getInstance();
     
-    public void makeDelivery(String name, String lastname, String address, String home, String methodPayment) {
-        db.addDelivery(new Delivery(name, lastname, address, home, methodPayment));
+    public void makeShipment(String department, String city, String neighborhood) {
+        db.addShipment(new Shipment(department, city, neighborhood));
     }
     
-    public List<Delivery> getDeliveries() {
-        return db.getDeliveries();
+    public List<Shipment> getShipments() {
+        return db.getShipments();
     }
     
 }

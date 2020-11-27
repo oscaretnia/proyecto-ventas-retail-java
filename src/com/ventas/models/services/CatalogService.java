@@ -5,9 +5,9 @@
  */
 package com.ventas.models.services;
 
-import com.ventas.models.Data;
-import com.ventas.models.Product;
-import com.ventas.models.Sale;
+import com.ventas.models.db.Data;
+import com.ventas.models.entities.Product;
+import com.ventas.models.entities.Sale;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.stream.Collectors;
