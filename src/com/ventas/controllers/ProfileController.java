@@ -45,6 +45,9 @@ public class ProfileController {
         }
     }
     
+    public boolean isAdmin(String username) {
+        return model.getProfile(username).getRole().equals("Administrador");
+    }
     
     
 }
