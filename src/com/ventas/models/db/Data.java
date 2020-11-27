@@ -79,14 +79,19 @@ public class Data {
     
     private void setDummyData() {
         
-        Product p = new Product("Producto 1", "Hombres", "Producto 1", 10, 1000);
+        Product p1 = new Product("Producto 1", "Hombres", "Producto 1", 10, 1000);
+        Product p2 = new Product("Producto 2", "Accesorios", "Producto 2", 10, 1000);
+        Product p3 = new Product("Producto 2", "Zapatos", "Producto 2", 10, 1000);
         
-        products.add(p);
-        products.add(new Product("Producto 2", "Hombres", "Producto 2", 10, 1000));
+        products.add(p1);
+        products.add(p2);
+        products.add(p3);
         
-        sales.add(new Sale(p, 12, "2020-02-11"));
+        sales.add(new Sale(p1, 12, "2020-02-11"));
+        sales.add(new Sale(p2, 9, "2020-02-11"));
         
         users.add(new User("Sophy", "Rico", "Administrador", "1994-Febrero-11", "Femenino", "sophyrico", "sophyrico@mail.com", "12345678"));
+        users.add(new User("Oscar", "Sepulveda", "Cliente", "1994-Febrero-11", "Masculino", "oscaretnia", "oscaretnia@mail.com", "12345678"));
     }
     
 }
