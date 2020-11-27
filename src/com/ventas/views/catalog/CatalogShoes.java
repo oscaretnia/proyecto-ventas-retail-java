@@ -2,7 +2,11 @@ package com.ventas.views.catalog;
 
 import com.ventas.controllers.CatalogController;
 import com.ventas.util.Message;
+import com.ventas.views.ClientView;
 import com.ventas.views.Content;
+import com.ventas.views.delivery.DeliveryView;
+import com.ventas.views.delivery.ShipmentView;
+import java.util.Vector;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -16,14 +20,17 @@ import com.ventas.views.Content;
 public class CatalogShoes extends javax.swing.JFrame implements CatalogView {
 
     private final CatalogController controller;
+    private final String userId;
     
     
     Content content = new Content("shoes-catalog.jpg");
 
-    public CatalogShoes() {
+    public CatalogShoes(String userId) {
         setContentPane(content);
         setResizable(false);
         initComponents();
+        
+        this.userId = userId;
         
         controller = new CatalogController(this);
         
@@ -273,7 +280,8 @@ public class CatalogShoes extends javax.swing.JFrame implements CatalogView {
     }//GEN-LAST:event_jTextField7ActionPerformed
 
     private void btnCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelActionPerformed
-        // TODO add your handling code here:
+        new ClientView(userId).start();
+        this.dispose();
     }//GEN-LAST:event_btnCancelActionPerformed
 
     private void btnSaleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaleActionPerformed
@@ -332,7 +340,19 @@ public class CatalogShoes extends javax.swing.JFrame implements CatalogView {
 
     @Override
     public void onSuccess() {
-        Message.info(this, "La compra fue exitosa");
+        int result = Message.question(this, "Compra exitosa\n¿Desea recibir su pedido a domicilio?");
+        
+        if (result == 0) {
+            int delivery = Message.question(this, "¿Envio local?");
+            
+            if (delivery == 0) {
+                new DeliveryView(userId).start();
+                this.dispose();
+            } else {
+                new ShipmentView(userId).start();
+                this.dispose();
+            }
+        }
     }
     
     @Override
@@ -341,7 +361,7 @@ public class CatalogShoes extends javax.swing.JFrame implements CatalogView {
     }
     
     @Override
-    public void showCatalog(String[] catalog) {
+    public void showCatalog(Vector<String> catalog) {
         listShoes.setListData(catalog);
     }
     

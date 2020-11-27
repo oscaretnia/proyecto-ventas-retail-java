@@ -22,4 +22,8 @@ public class Message {
         JOptionPane.showMessageDialog(parent, message, "Error", JOptionPane.ERROR_MESSAGE);
     }
     
+    public static int question(JFrame parent, String message) {
+        return JOptionPane.showConfirmDialog(parent, message, "Confirmación", JOptionPane.YES_NO_OPTION);
+    }
+    
 }

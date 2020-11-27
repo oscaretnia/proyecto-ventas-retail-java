@@ -8,6 +8,7 @@ package com.ventas.controllers;
 import com.ventas.models.services.CatalogService;
 import com.ventas.views.catalog.CatalogView;
 import java.util.Date;
+import java.util.Vector;
 
 /**
  *
@@ -27,10 +28,15 @@ public class CatalogController {
         int quantity = Integer.parseInt(qty);
         model.makeSale(product, quantity, new Date().toString());
         view.onSuccess();
+        
     }
     
     public void showCatalog(String category) {
-        String[] catalog = model.getProductsByCategory(category).stream().map(p -> p.getName()).toArray(String[]::new);
+        Vector<String> catalog = new Vector<>();
+        model.getProductsByCategory(category).forEach( p -> {
+            catalog.add(p.getName() + " - $" + p.getPrice());
+        });
+        
         view.showCatalog(catalog);
     }
     

@@ -2,6 +2,7 @@ package com.ventas.views.delivery;
 
 import com.ventas.controllers.ShipmentController;
 import com.ventas.util.Message;
+import com.ventas.views.ClientView;
 import com.ventas.views.Content;
 
 /*
@@ -16,15 +17,18 @@ import com.ventas.views.Content;
 public class ShipmentView extends javax.swing.JFrame {
 
     private final ShipmentController controller;
+    private final String userId;
     /**
      * Creates new form Compra
      */
     Content content = new Content("shipments.jpg");
 
-    public ShipmentView() {
+    public ShipmentView(String userId) {
         setContentPane(content);
         setResizable(false);
         initComponents();
+        
+        this.userId = userId;
 
         controller = new ShipmentController(this);
     }
@@ -160,6 +164,8 @@ public class ShipmentView extends javax.swing.JFrame {
 
     public void onSuccess() {
         Message.info(this, "El despacho fue agendado de forma exitosa");
+        new ClientView(userId).start();
+        this.dispose();
     }
 
     public void onError(String message) {

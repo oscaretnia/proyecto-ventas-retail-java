@@ -2,6 +2,7 @@ package com.ventas.views.delivery;
 
 import com.ventas.controllers.DeliveryController;
 import com.ventas.util.Message;
+import com.ventas.views.ClientView;
 import com.ventas.views.Content;
 
 
@@ -17,16 +18,19 @@ import com.ventas.views.Content;
 public class DeliveryView extends javax.swing.JFrame {
     
     private final DeliveryController controller;
+    private final String userId;
 
     /**
      * Creates new form Domicilio
      */
     Content content = new Content("shipments.jpg");
 
-    public DeliveryView() {
+    public DeliveryView(String userId) {
         setContentPane(content);
         setResizable(false);
         initComponents();
+        
+        this.userId = userId;
         
         controller = new DeliveryController(this);
     }
@@ -194,6 +198,8 @@ public class DeliveryView extends javax.swing.JFrame {
 
     public void onSuccess() {
         Message.info(this, "El domicilio fue agendado de forma exitosa");
+        new ClientView(userId).start();
+        this.dispose();
     }
     
     public void onError(String message) {

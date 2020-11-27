@@ -160,17 +160,17 @@ public class ClientView extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCatalogMensMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCatalogMensMouseClicked
-        new CatalogMens().start();
+        new CatalogMens(userId).start();
         this.dispose();
     }//GEN-LAST:event_btnCatalogMensMouseClicked
 
     private void btnCatalogAccessoriesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCatalogAccessoriesMouseClicked
-        new CatalogAccessories().start();
+        new CatalogAccessories(userId).start();
         this.dispose();
     }//GEN-LAST:event_btnCatalogAccessoriesMouseClicked
 
     private void btnCatalogShoesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCatalogShoesMouseClicked
-        new CatalogShoes().start();
+        new CatalogShoes(userId).start();
         this.dispose();
     }//GEN-LAST:event_btnCatalogShoesMouseClicked
 

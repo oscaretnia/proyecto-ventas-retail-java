@@ -5,6 +5,8 @@
  */
 package com.ventas.views.catalog;
 
+import java.util.Vector;
+
 /**
  *
  * @author oscaretnia
@@ -15,6 +17,6 @@ public interface CatalogView {
     
     public void onError(String messaje);
     
-    public void showCatalog(String[] catalog);
+    public void showCatalog(Vector<String> catalog);
     
 }
