@@ -2,7 +2,11 @@ package com.ventas.views.catalog;
 
 import com.ventas.controllers.CatalogController;
 import com.ventas.util.Message;
+import com.ventas.views.ClientView;
 import com.ventas.views.Content;
+import com.ventas.views.delivery.DeliveryView;
+import com.ventas.views.delivery.ShipmentView;
+import java.util.Vector;
 
 
 /*
@@ -18,19 +22,26 @@ public class CatalogAccessories extends javax.swing.JFrame implements CatalogVie
 
     
     private final CatalogController controller;
+    private final String userId;
     
     
     Content content = new Content("accessories-catalog.jpg");
 
-    public CatalogAccessories() {
+    public CatalogAccessories(String userId) {
         this.setContentPane(content);
         setResizable(false);
         initComponents();
+        
+        this.userId = userId;
         
         controller = new CatalogController(this);
         
         //Populate list
         controller.showCatalog("Accesorios");
+    }
+    
+    public static void main(String[] args) {
+        new CatalogAccessories("").start();
     }
 
     /**
@@ -117,14 +128,17 @@ public class CatalogAccessories extends javax.swing.JFrame implements CatalogVie
 
     private void btnSaleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaleActionPerformed
        if (listAccessories.getSelectedValue() != null) {
-          controller.doSale(listAccessories.getSelectedValue(), txtQty.getValue().toString());
+           
+           String product = listAccessories.getSelectedValue().substring(0, listAccessories.getSelectedValue().indexOf("-")-1);
+           controller.doSale(product, txtQty.getValue().toString());
        } else {
            onError("Debe seleccionar un producto");
        }
     }//GEN-LAST:event_btnSaleActionPerformed
 
     private void btnCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelActionPerformed
-        
+        new ClientView(userId).start();
+        this.dispose();
     }//GEN-LAST:event_btnCancelActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -138,7 +152,20 @@ public class CatalogAccessories extends javax.swing.JFrame implements CatalogVie
     
     @Override
     public void onSuccess() {
-        Message.info(this, "La compra fue exitosa");
+        int result = Message.question(this, "Compra exitosa\n¿Desea recibir su pedido a domicilio?");
+        
+        if (result == 0) {
+            int delivery = Message.question(this, "¿Envio local?");
+            
+            if (delivery == 0) {
+                new DeliveryView(userId).start();
+                this.dispose();
+            } else {
+                new ShipmentView(userId).start();
+                this.dispose();
+            }
+        }
+        
     }
     
     @Override
@@ -147,7 +174,7 @@ public class CatalogAccessories extends javax.swing.JFrame implements CatalogVie
     }
     
     @Override
-    public void showCatalog(String[] catalog) {
+    public void showCatalog(Vector<String> catalog) {
         listAccessories.setListData(catalog);
     }
     
